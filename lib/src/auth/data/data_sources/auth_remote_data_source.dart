@@ -70,11 +70,13 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }) async {
     try {
       final result = await _authClient.signInWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       final user = result.user;
 
       if (user == null) {
-        throw const ServerException(
+        throw  ServerException(
           message: 'Please try again later',
           statusCode: 'Unknown Error',
         );
