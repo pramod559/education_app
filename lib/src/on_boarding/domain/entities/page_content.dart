@@ -6,10 +6,10 @@ class PageContent extends Equatable {
   final String title;
   final String description;
 
-  PageContent(
+  const PageContent(
       {required this.image, required this.title, required this.description});
 
-  PageContent.first()
+  const PageContent.first()
       : this(
           image: MediaRes.casualReading,
           title: 'Brand new curriculum',
@@ -17,7 +17,7 @@ class PageContent extends Equatable {
               'This is the first online education platform designed by the'
               "world's top professors",
         );
-  PageContent.second()
+  const PageContent.second()
       : this(
           image: MediaRes.casualLife,
           title: 'Brand a fun atmosphere',
@@ -25,7 +25,7 @@ class PageContent extends Equatable {
               'This is the first online education platform designed by the'
               "world's top professors",
         );
-  PageContent.third()
+  const PageContent.third()
       : this(
           image: MediaRes.casualMeditationScience,
           title: 'Easy to join the lesson',

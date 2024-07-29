@@ -64,6 +64,7 @@ class LocalUserModel extends LocalUser {
     );
   }
 
+  @override
   DataMap toMap() {
     return {
       'uId': uId,

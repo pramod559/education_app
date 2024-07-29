@@ -29,7 +29,7 @@ void main() {
           .thenAnswer((_) async => Future.value());
       final result = await repoImpl.cacheFirstTimer();
 
-      expect(result, equals(Right<dynamic, void>(null)));
+      expect(result, equals(const Right<dynamic, void>(null)));
 
       verify(() => localDataSource.cacheFirstTimer());
       verifyNoMoreInteractions(localDataSource);
@@ -39,7 +39,7 @@ void main() {
         'should return [CacheFailure] when call to local source is'
         ' unsuccessful', () async {
       when(() => localDataSource.cacheFirstTimer()).thenThrow(
-        CacheException(message: 'Insufficient storage'),
+        const CacheException(message: 'Insufficient storage'),
       );
 
       final result = await repoImpl.cacheFirstTimer();
@@ -64,7 +64,7 @@ void main() {
 
         final result = await repoImpl.checkIfUserIsFirstTimer();
 
-        expect(result, equals(Right<dynamic, bool>(true)));
+        expect(result, equals(const Right<dynamic, bool>(true)));
 
         verify(() => localDataSource.checkIfUserIsFirstTimer()).called(1);
 
@@ -77,7 +77,7 @@ void main() {
 
       final result = await repoImpl.checkIfUserIsFirstTimer();
 
-      expect(result, equals(Right<dynamic, bool>(false)));
+      expect(result, equals(const Right<dynamic, bool>(false)));
 
       verify(() => localDataSource.checkIfUserIsFirstTimer()).called(1);
 
@@ -88,7 +88,7 @@ void main() {
       'is Unsuccessful',
       () async {
         when(() => localDataSource.checkIfUserIsFirstTimer())
-            .thenThrow(CacheException(
+            .thenThrow(const CacheException(
           message: 'Insufficent permissions',
           statusCode: 403,
         ));

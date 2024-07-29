@@ -17,7 +17,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   final CheckIfUserIsFirstTimer _checkIfUserIsFirstTimer;
 
   Future<void> cacheFirstTimer() async {
-    emit(CachingFirstTimer());
+    emit(const CachingFirstTimer());
     final result = await _cacheFirstTimer();
 
     result.fold((failure) => emit(OnBoardingError(failure.errorMessage)),
@@ -25,7 +25,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   }
 
   Future<void> checkIfUserFirstTimer() async {
-    emit(CheckingIfUserIsFirstTimer());
+    emit(const CheckingIfUserIsFirstTimer());
     final result = await _checkIfUserIsFirstTimer();
 
     result.fold((failure) => emit(const OnBoardingStatus(isFirstTimer: true)),

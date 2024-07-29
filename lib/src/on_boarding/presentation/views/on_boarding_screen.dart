@@ -45,29 +45,29 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           builder: (BuildContext context, OnBoardingState state) {
             if (state is CheckingIfUserIsFirstTimer ||
                 state is CachingFirstTimer) {
-              return LoadingView();
+              return const LoadingView();
             }
             return Stack(
               children: [
                 PageView(
                   controller: pageController,
                   children: [
-                    OnBoardingBody(pageContent: PageContent.first()),
-                    OnBoardingBody(pageContent: PageContent.second()),
-                    OnBoardingBody(pageContent: PageContent.third())
+                    const OnBoardingBody(pageContent: PageContent.first()),
+                    const OnBoardingBody(pageContent: PageContent.second()),
+                    const OnBoardingBody(pageContent: PageContent.third())
                   ],
                 ),
                 Align(
-                  alignment: Alignment(0, .04),
+                  alignment: const Alignment(0, .04),
                   child: SmoothPageIndicator(
                     controller: pageController,
                     count: 3,
                     onDotClicked: (index) {
                       pageController.animateToPage(index,
-                          duration: Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 500),
                           curve: Curves.easeInOut);
                     },
-                    effect: WormEffect(
+                    effect: const WormEffect(
                       dotHeight: 10,
                       dotWidth: 10,
                       spacing: 40,

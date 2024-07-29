@@ -5,7 +5,6 @@ import 'package:education_app/core/errors/failures.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:education_app/src/auth/data/models/user_model.dart';
-import 'package:education_app/src/auth/domain/entities/user.dart';
 import 'package:education_app/src/auth/domain/repos/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
@@ -17,7 +16,7 @@ class AuthRepoImpl implements AuthRepo {
     try {
       await _remoteDataSource.forgotPassword(email);
 
-      return Right(null);
+      return const Right(null);
     } on ServerException catch (e) {
       return Left(ServerFailure(
         message: e.message,
@@ -56,7 +55,7 @@ class AuthRepoImpl implements AuthRepo {
         fullName: fullName,
         password: password,
       );
-      return Right(null);
+      return const Right(null);
     } on ServerException catch (e) {
       return Left(ServerFailure(
         message: e.message,
@@ -70,7 +69,7 @@ class AuthRepoImpl implements AuthRepo {
       {required UpdateUserAction action, userData}) async {
     try {
       await _remoteDataSource.updateUser(action: action, userData: userData);
-      return Right(null);
+      return const Right(null);
     } on ServerException catch (e) {
       return Left(ServerFailure(
         message: e.message,

@@ -77,7 +77,7 @@ void main() {
           'when successful',
           build: () {
             when(() => checkIfUserIsFirstTimer()).thenAnswer(
-              (_) async => Right(false),
+              (_) async => const Right(false),
             );
             return cubit;
           },
@@ -104,8 +104,8 @@ void main() {
           },
           act: (cubit) => cubit.checkIfUserFirstTimer(),
           expect: () => [
-                CheckingIfUserIsFirstTimer(),
-                OnBoardingStatus(
+                const CheckingIfUserIsFirstTimer(),
+                const OnBoardingStatus(
                   isFirstTimer: true,
                 ),
               ],

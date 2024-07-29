@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnBoardingBody extends StatelessWidget {
-  OnBoardingBody({super.key, required this.pageContent});
+  const OnBoardingBody({super.key, required this.pageContent});
 
   final PageContent pageContent;
 
@@ -23,13 +23,13 @@ class OnBoardingBody extends StatelessWidget {
           height: context.height * .03,
         ),
         Padding(
-          padding: EdgeInsets.all(20).copyWith(bottom: 0),
+          padding: const EdgeInsets.all(20).copyWith(bottom: 0),
           child: Column(
             children: [
               Text(
                 pageContent.title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: Fonts.aeonik,
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
@@ -40,7 +40,7 @@ class OnBoardingBody extends StatelessWidget {
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 50,
                         vertical: 17,
                       ),
@@ -49,7 +49,7 @@ class OnBoardingBody extends StatelessWidget {
                   onPressed: () {
                     context.read<OnBoardingCubit>().cacheFirstTimer();
                   },
-                  child: Text(
+                  child: const Text(
                     'Get Started',
                     style: TextStyle(
                       fontFamily: Fonts.aeonik,
