@@ -36,10 +36,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         image: MediaRes.onBoardingBackground,
         child: BlocConsumer<OnBoardingCubit, OnBoardingState>(
           listener: (BuildContext context, OnBoardingState state) {
-            if (state is OnBoardingStatus && state.isFirstTimer) {
+            if (state is OnBoardingStatus && !state.isFirstTimer) {
               Navigator.pushReplacementNamed(context, '/home');
-            }else if(state is UserCached){
+            } else if (state is UserCached) {
               //
+              Navigator.pushReplacementNamed(context, '/');
             }
           },
           builder: (BuildContext context, OnBoardingState state) {

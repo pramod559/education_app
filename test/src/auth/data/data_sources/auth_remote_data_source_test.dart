@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:education_app/core/enums/update_user.dart';
@@ -309,6 +312,55 @@ void main() {
       verifyNever(() => mockUser.updatePhotoURL(any()));
       verifyNever(() => mockUser.updateEmail(any()));
       verifyNever(() => mockUser.updatePassword(any()));
+    });
+
+    test(
+        'should update user password successfully when no [Exception] is thrown',
+        () async {
+      when(() => mockUser.updatePassword(any())).thenAnswer(
+        (_) async => Future.value(),
+      );
+
+      when(() => mockUser.reauthenticateWithCredential(any()))
+          .thenAnswer((_) async => userCredential);
+
+      when(
+        () => mockUser.email,
+      ).thenReturn(tEmail);
+      await dataSource.updateUser(
+          action: UpdateUserAction.password,
+          userData: jsonEncode(
+              {'oldPassword': 'oldPassword', 'newPassword': '${tPassword}'}));
+      verify(() => mockUser.updatePassword(tPassword));
+      verifyNever(() => mockUser.updatePhotoURL(any()));
+      verifyNever(() => mockUser.updateEmail(any()));
+      verifyNever(() => mockUser.updatePassword(any()));
+
+      final user = await cloudStoreClient
+          .collection('users')
+          .doc(documentReference.id)
+          .get();
+
+      expect(user.data()!['password'], null);
+    });
+    test(
+        'should update user profilePic successfully when no [Exception ] is thrown',
+        () async {
+      final newProfilePic = File('assets/images/onBoarding_background.png');
+
+      when(() => mockUser.updatePhotoURL(any()))
+          .thenAnswer((_) async => Future.value());
+
+      await dataSource.updateUser(
+          action: UpdateUserAction.profilePic, userData: newProfilePic);
+
+      verify(() => mockUser.updatePhotoURL(any())).called(1);
+
+      verifyNever(() => mockUser.updateDisplayName(any()));
+      verifyNever(() => mockUser.updatePassword(any()));
+      verifyNever(() => mockUser.updateEmail(any()));
+
+      // expect(dbClient.storFileMap.isNotEmpty, isTrue);
     });
   });
 }
