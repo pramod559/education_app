@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:education_app/core/enums/update_user.dart';
 import 'package:education_app/core/errors/exceptions.dart';
 import 'package:education_app/core/utils/constants.dart';
@@ -11,7 +10,6 @@ import 'package:education_app/src/auth/data/data_sources/auth_remote_data_source
 import 'package:education_app/src/auth/data/models/user_model.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_storage_mocks/firebase_storage_mocks.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -330,7 +328,7 @@ void main() {
       await dataSource.updateUser(
           action: UpdateUserAction.password,
           userData: jsonEncode(
-              {'oldPassword': 'oldPassword', 'newPassword': '${tPassword}'}));
+              {'oldPassword': 'oldPassword', 'newPassword': tPassword}));
       verify(() => mockUser.updatePassword(tPassword));
       verifyNever(() => mockUser.updatePhotoURL(any()));
       verifyNever(() => mockUser.updateEmail(any()));

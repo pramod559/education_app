@@ -7,5 +7,6 @@ class CacheFirstTimer extends UsecasesWithoutParams<void> {
 
   final OnBoardingRepo _repo;
 
+  @override
   ResultFuture<void> call() async => _repo.cacheFirstTimer();
 }

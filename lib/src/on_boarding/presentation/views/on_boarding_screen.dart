@@ -52,10 +52,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               children: [
                 PageView(
                   controller: pageController,
-                  children: [
-                    const OnBoardingBody(pageContent: PageContent.first()),
-                    const OnBoardingBody(pageContent: PageContent.second()),
-                    const OnBoardingBody(pageContent: PageContent.third())
+                  children: const [
+                    OnBoardingBody(pageContent: PageContent.first()),
+                    OnBoardingBody(pageContent: PageContent.second()),
+                    OnBoardingBody(pageContent: PageContent.third())
                   ],
                 ),
                 Align(

@@ -11,7 +11,7 @@ class CoreUtils {
         SnackBar(
           content: Text(
             message,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
@@ -21,7 +21,7 @@ class CoreUtils {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
         ),
       );
   }

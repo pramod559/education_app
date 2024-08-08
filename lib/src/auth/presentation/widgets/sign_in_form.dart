@@ -30,7 +30,7 @@ class _SignInFormState extends State<SignInForm> {
           IField(
             controller: widget.emailController,
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
           IField(

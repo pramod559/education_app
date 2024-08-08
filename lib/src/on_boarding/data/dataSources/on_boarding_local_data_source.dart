@@ -1,5 +1,4 @@
 import 'package:education_app/core/errors/exceptions.dart';
-import 'package:education_app/src/on_boarding/domain/usecases/cache_first_timer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class OnBoardingLocalDataSource {

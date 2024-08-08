@@ -5,7 +5,6 @@ import 'package:education_app/src/on_boarding/data/dataSources/on_boarding_local
 import 'package:education_app/src/on_boarding/data/repos/on_boarding_repo_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:open_file/open_file.dart';
 
 class MockOnBoardingLocalDataSrc extends Mock
     implements OnBoardingLocalDataSource {}

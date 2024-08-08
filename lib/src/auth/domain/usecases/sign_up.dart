@@ -1,9 +1,7 @@
 import 'package:education_app/core/usecases/usecases.dart';
 import 'package:education_app/core/utils/typedefs.dart';
-import 'package:education_app/src/auth/domain/entities/user.dart';
 import 'package:education_app/src/auth/domain/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/services.dart';
 
 class SignUp extends UsecasesWithParams<void, SignUpParams> {
   final AuthRepo _repo;

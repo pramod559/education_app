@@ -2,7 +2,6 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:education_app/core/errors/failures.dart';
 import 'package:education_app/src/auth/data/models/user_model.dart';
-import 'package:education_app/src/auth/domain/repos/auth_repo.dart';
 import 'package:education_app/src/auth/domain/usecases/forgot_password.dart';
 import 'package:education_app/src/auth/domain/usecases/sign_in.dart';
 import 'package:education_app/src/auth/domain/usecases/sign_up.dart';
@@ -78,7 +77,7 @@ void main() {
             ),
         expect: () => [
               AuthLoading(),
-              SignedIn(tUser),
+              const SignedIn(tUser),
             ],
         verify: (_) {
           verify(() => signIn(tSignInParams)).called(1);
@@ -122,7 +121,7 @@ void main() {
             ),
         expect: () => [
               AuthLoading(),
-              SignedUp(),
+              const SignedUp(),
             ],
         verify: (_) {
           verify(() => signUp(tSignUpParams)).called(1);
@@ -165,7 +164,7 @@ void main() {
             ),
         expect: () => [
               AuthLoading(),
-              ForgotPasswordSent(),
+              const ForgotPasswordSent(),
             ],
         verify: (_) {
           verify(() => forgotPassword('email')).called(1);
@@ -210,7 +209,7 @@ void main() {
             ),
         expect: () => [
               AuthLoading(),
-              UserUpdated(),
+              const UserUpdated(),
             ],
         verify: (_) {
           verify(() => updateUser(tUpdateUserParams)).called(1);

@@ -40,8 +40,18 @@ class LocalUser extends Equatable {
         );
 
   @override
-  // TODO: implement props
-  List<Object?> get props => [uId, email];
+  List<Object?> get props => [
+        uId,
+        email,
+        profilePic,
+        bio,
+        points,
+        fullName,
+        groupIds.length,
+        enrolledCourseIds.length,
+        following.length,
+        followers.length,
+      ];
 
   @override
   String toString() {
@@ -51,19 +61,18 @@ class LocalUser extends Equatable {
 
   Map<String, dynamic> toMap() {
     return {
-      'uId': this.uId,
-      'email': this.email,
-      'profilePic': this.profilePic,
-      'bio': this.bio,
-      'points': this.points,
-      'fullName': this.fullName,
-      'groupIds': this.groupIds,
-      'enrolledCourseIds': this.enrolledCourseIds,
-      'following': this.following,
-      'followers': this.followers,
+      'uId': uId,
+      'email': email,
+      'profilePic': profilePic,
+      'bio': bio,
+      'points': points,
+      'fullName': fullName,
+      'groupIds': groupIds,
+      'enrolledCourseIds': enrolledCourseIds,
+      'following': following,
+      'followers': followers,
     };
   }
-  
 
   LocalUser copyWith({
     String? uId,

@@ -5,7 +5,7 @@ class Colours {
   static const gradient = [
     Color(0xFFED8F8F),
     Color(0xFFFDC1E8),
-    Color(0xFFFFFFF),
+    Color(0x0fffffff),
     Color(0xFFFFFAE1),
   ];
 
