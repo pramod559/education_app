@@ -26,7 +26,7 @@ class DashboardController extends ChangeNotifier {
     ChangeNotifierProvider(
       create: (_) => TabNavigator(TabItem(
           child: BlocProvider(
-              create: (_) => sl<AuthBloc>(), child: ProfileView()))),
+              create: (_) => sl<AuthBloc>(), child: const ProfileView()))),
       child: const PersistentView(),
     )
   ];

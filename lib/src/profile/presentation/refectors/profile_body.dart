@@ -23,7 +23,7 @@ class ProfileBody extends StatelessWidget {
               Expanded(
                   child: UserInfoCard(
                 infoThemeColour: Colours.physicsTileColour,
-                infoIcon: Icon(
+                infoIcon: const Icon(
                   IconlyLight.document,
                   size: 24,
                   color: Color(0xFF767DFF),
@@ -31,7 +31,7 @@ class ProfileBody extends StatelessWidget {
                 infoTitle: 'Cources',
                 infoValue: user!.enrolledCourseIds.length.toString(),
               )),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: UserInfoCard(
                   infoThemeColour: Colours.languageTileColour,
@@ -46,8 +46,8 @@ class ProfileBody extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 20),
-          Row(
+          const SizedBox(height: 20),
+          const Row(
             children: [
               //
             ],

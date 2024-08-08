@@ -40,7 +40,7 @@ class Course extends Equatable {
   final DateTime updatedAt;
   final String? description;
   final String? image;
-  final bool imageIsFile;
+  final bool? imageIsFile;
 
   @override
   List<Object?> get props => [

@@ -22,19 +22,19 @@ class EditProfileFormField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(left: 10),
           child: Text(
             fieldTitle,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         IField(
           controller: controller,
           hintText: hintText,
           readOnly: readOnly,
         ),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
       ],
     );
   }

@@ -13,12 +13,12 @@ class ProfileView extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
-      appBar: ProfileAppBar(),
+      appBar: const ProfileAppBar(),
       body: GradientBackground(
         image: MediaRes.profileGradientBackground,
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          children: [
+          children: const [
             ProfileHeader(),
             //ProfileBody(),
           ],

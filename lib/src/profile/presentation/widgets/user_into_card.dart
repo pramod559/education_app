@@ -1,8 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart'; // Ensure you have the iconly package imported
+// Ensure you have the iconly package imported
 
 class UserInfoCard extends StatelessWidget {
   final Color infoThemeColour;
@@ -35,7 +33,7 @@ class UserInfoCard extends StatelessWidget {
             children: [
               Text(
                 infoTitle,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
@@ -43,7 +41,7 @@ class UserInfoCard extends StatelessWidget {
               ),
               Text(
                 infoValue,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 14.0,
                 ),

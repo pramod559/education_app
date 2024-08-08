@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProfileHeader extends StatelessWidget {
-  ProfileHeader({super.key});
+  const ProfileHeader({super.key});
   //final ListOfOptions = [];
 
   @override
@@ -24,20 +24,20 @@ class ProfileHeader extends StatelessWidget {
             radius: 50,
             backgroundImage: image != null
                 ? NetworkImage(image)
-                : AssetImage(MediaRes.user) as ImageProvider,
+                : const AssetImage(MediaRes.user) as ImageProvider,
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text(
             user?.fullName ?? 'No User',
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 24,
             ),
           ),
           //    ...ListOfOptions,
           if (user?.bio != null && user!.bio!.isNotEmpty) ...[
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: context.width * .15,
@@ -45,14 +45,14 @@ class ProfileHeader extends StatelessWidget {
               child: Text(
                 user.bio!,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 12,
                   color: Colours.neutralTextColour,
                 ),
               ),
             )
           ],
-          SizedBox(height: 16,)
+          const SizedBox(height: 16,)
         ],
       );
     });

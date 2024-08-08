@@ -76,7 +76,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final user = result.user;
 
       if (user == null) {
-        throw  const ServerException(
+        throw const ServerException(
           message: 'Please try again later',
           statusCode: 'Unknown Error',
         );

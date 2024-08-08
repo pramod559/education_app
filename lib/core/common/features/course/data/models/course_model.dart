@@ -3,7 +3,7 @@ import 'package:education_app/core/common/features/course/domain/entities/course
 import 'package:education_app/core/utils/typedefs.dart';
 
 class CourseModel extends Course {
-  CourseModel({
+  const CourseModel({
     required super.id,
     required super.title,
     required super.numberOfExams,
@@ -28,21 +28,19 @@ class CourseModel extends Course {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
         );
-  DataMap toMap() {
-    return {
-      'id': id,
-      'title': title,
-      'numberOfExams': numberOfExams,
-      'numberOfMaterials': numberOfMaterials,
-      'numberOfVideos': numberOfVideos,
-      'groupId': groupId,
-      'createdAt': FieldValue.serverTimestamp(),
-      'updatedAt': FieldValue.serverTimestamp(),
-      'description': description,
-      'image': image,
-      'imageIsFile': imageIsFile,
-    };
-  }
+  DataMap toMap() => {
+        'id': id,
+        'title': title,
+        'numberOfExams': numberOfExams,
+        'numberOfMaterials': numberOfMaterials,
+        'numberOfVideos': numberOfVideos,
+        'groupId': groupId,
+        'createdAt': FieldValue.serverTimestamp(),
+        'updatedAt': FieldValue.serverTimestamp(),
+        'description': description,
+        'image': image,
+        'imageIsFile': imageIsFile,
+      };
 
   CourseModel.fromMap(DataMap map)
       : super(

@@ -7,7 +7,6 @@ import 'package:education_app/core/services/injection_container.dart';
 import 'package:education_app/src/auth/presentation/bloc/auth_bloc.dart';
 import 'package:education_app/src/profile/presentation/views/edit_profile_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
@@ -29,7 +28,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         PopupMenuButton(
             offset: const Offset(0, 50),
             surfaceTintColor: Colors.white,
-            icon: Icon(Icons.more_horiz),
+            icon: const Icon(Icons.more_horiz),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
@@ -48,14 +47,14 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
                           child: const EditProfileView()),
                     ),
                   ),
-                  PopupMenuItem<void>(
-                    child: const PopUpItem(
+                  const PopupMenuItem<void>(
+                    child: PopUpItem(
                         title: 'Notification',
                         icon: Icon(IconlyLight.notification,
                             color: Colours.neutralTextColour)),
                   ),
-                  PopupMenuItem<void>(
-                    child: const PopUpItem(
+                  const PopupMenuItem<void>(
+                    child: PopUpItem(
                         title: 'Help',
                         icon: Icon(Icons.help_outline_outlined,
                             color: Colours.neutralTextColour)),
