@@ -14,7 +14,7 @@ class CourseRepoImpl implements CourseRepo {
   @override
   ResultFuture<void> addCourse(Course course) async {
     try {
-      await _remoteDataSrc.addCoures(course);
+      await _remoteDataSrc.addCourse(course);
       return const Right(null);
     } on ServerException catch (e) {
       return Left(ServerFailure.fromException(e));

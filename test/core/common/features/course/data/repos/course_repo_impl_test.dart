@@ -31,13 +31,13 @@ void main() {
     test(
       'should complete successfully when call to remote source  is successful',
       () async {
-        when(() => remoteDataSrc.addCoures(any())).thenAnswer(
+        when(() => remoteDataSrc.addCourse(any())).thenAnswer(
           (_) async => Future.value(),
         );
         final result = await repoImpl.addCourse(tCourse);
         expect(result, const Right<dynamic, void>(null));
         verify(
-          () => remoteDataSrc.addCoures(tCourse),
+          () => remoteDataSrc.addCourse(tCourse),
         ).called(1);
         verifyNoMoreInteractions(remoteDataSrc);
       },
@@ -45,14 +45,14 @@ void main() {
     test(
       'should return [ServerFailure] when call to remote source  is unsuccessful',
       () async {
-        when(() => remoteDataSrc.addCoures(any())).thenThrow(tException);
+        when(() => remoteDataSrc.addCourse(any())).thenThrow(tException);
         final result = await repoImpl.addCourse(tCourse);
 
         expect(
           result,
           Left<Failure, void>(ServerFailure.fromException(tException)),
         );
-        verify(() => remoteDataSrc.addCoures(tCourse)).called(1);
+        verify(() => remoteDataSrc.addCourse(tCourse)).called(1);
         verifyNoMoreInteractions(remoteDataSrc);
       },
     );

@@ -28,6 +28,7 @@ class CourseModel extends Course {
           createdAt: DateTime.now(),
           updatedAt: DateTime.now(),
         );
+  @override
   DataMap toMap() => {
         'id': id,
         'title': title,
@@ -57,6 +58,7 @@ class CourseModel extends Course {
           imageIsFile: map['imageIsFile'] ?? false,
         );
 
+  @override
   CourseModel copyWith({
     String? id,
     String? title,
