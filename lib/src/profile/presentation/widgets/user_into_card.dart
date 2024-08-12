@@ -9,12 +9,12 @@ class UserInfoCard extends StatelessWidget {
   final String infoValue;
 
   const UserInfoCard({
-    Key? key,
+    super.key,
     required this.infoThemeColour,
     required this.infoIcon,
     required this.infoTitle,
     required this.infoValue,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

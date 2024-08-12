@@ -1,5 +1,4 @@
 import 'package:education_app/core/common/widgets/i_field.dart';
-import 'package:education_app/core/res/colours.dart';
 import 'package:flutter/material.dart';
 
 class EditProfileFormField extends StatelessWidget {

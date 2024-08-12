@@ -4,6 +4,8 @@ import 'package:education_app/core/services/injection_container.dart';
 import 'package:education_app/src/auth/data/models/user_model.dart';
 import 'package:education_app/src/auth/presentation/bloc/auth_bloc.dart';
 import 'package:education_app/src/auth/presentation/views/sign_up_screen.dart';
+import 'package:education_app/src/course/domain/entities/course.dart';
+import 'package:education_app/src/course/presentation/views/course_details_screen.dart';
 import 'package:education_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:education_app/src/on_boarding/data/dataSources/on_boarding_local_data_source.dart';
 import 'package:education_app/src/on_boarding/presentation/on_boarding/on_boarding_cubit.dart';

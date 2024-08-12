@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:education_app/core/common/features/course/data/datasources/course_remote_data_src.dart';
-import 'package:education_app/core/common/features/course/data/models/course_model.dart';
-import 'package:education_app/core/common/features/course/data/repos/course_repo_impl.dart';
-import 'package:education_app/core/common/features/course/domain/entities/course.dart';
+import 'package:education_app/src/course/data/datasources/course_remote_data_src.dart';
+import 'package:education_app/src/course/data/models/course_model.dart';
+import 'package:education_app/src/course/data/repos/course_repo_impl.dart';
+import 'package:education_app/src/course/domain/entities/course.dart';
 import 'package:education_app/core/errors/exceptions.dart';
 import 'package:education_app/core/errors/failures.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -62,26 +62,26 @@ void main() {
     test(
       'should return [List<Course>] when call to remote source  is successful',
       () async {
-        when(() => remoteDataSrc.getCouses()).thenAnswer(
+        when(() => remoteDataSrc.getCourses()).thenAnswer(
           (_) async => [tCourse],
         );
         final result = await repoImpl.getCourses();
         expect(result, isA<Right<dynamic, List<Course>>>());
-        verify(() => remoteDataSrc.getCouses()).called(1);
+        verify(() => remoteDataSrc.getCourses()).called(1);
         verifyNoMoreInteractions(remoteDataSrc);
       },
     );
     test(
       'should return [ServerFailure] when call to remote source  is unsuccessful',
       () async {
-        when(() => remoteDataSrc.getCouses()).thenThrow(tException);
+        when(() => remoteDataSrc.getCourses()).thenThrow(tException);
         final result = await repoImpl.getCourses();
 
         expect(
           result,
           Left<Failure, dynamic>(ServerFailure.fromException(tException)),
         );
-        verify(() => remoteDataSrc.getCouses()).called(1);
+        verify(() => remoteDataSrc.getCourses()).called(1);
         verifyNoMoreInteractions(remoteDataSrc);
       },
     );

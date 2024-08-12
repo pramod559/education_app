@@ -51,7 +51,7 @@ class GroupModel extends Group {
       id: id ?? this.id,
       name: name ?? this.name,
       courseId: courseId ?? this.courseId,
-      memebers: memebers ?? this.memebers,
+      memebers: memebers ?? memebers,
       lastMessage: lastMessage ?? this.lastMessage,
       lastMessageSenderName:
           lastMessageSenderName ?? this.lastMessageSenderName,

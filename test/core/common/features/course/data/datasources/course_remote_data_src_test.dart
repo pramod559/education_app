@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:education_app/core/common/features/course/data/datasources/course_remote_data_src.dart';
-import 'package:education_app/core/common/features/course/data/models/course_model.dart';
+import 'package:education_app/src/course/data/datasources/course_remote_data_src.dart';
+import 'package:education_app/src/course/data/models/course_model.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
@@ -78,7 +77,7 @@ void main() {
       () async {
         //Arrange
         final firstDate = DateTime.now();
-        final secondDate = DateTime.now().add(Duration(seconds: 20));
+        final secondDate = DateTime.now().add(const Duration(seconds: 20));
 
         final expectedCourses = [
           CourseModel.empty().copyWith(createdAt: firstDate),
@@ -88,11 +87,33 @@ void main() {
             title: 'Courses 1',
           ),
         ];
-        final result = await remoteDataSource.getCouses();
 
+        for (final course in expectedCourses) {
+          await firestore.collection('courses').add(course.toMap());
+        }
         //Act
-
+        final result = await remoteDataSource.getCourses();
         //Assert
+        expect(result, expectedCourses);
+        // Assert: Compare only down to milliseconds
+//        expect(result.length, expectedCourses.length);
+        // for (int i = 0; i < result.length; i++) {
+        //   expect(
+        //       result[i].copyWith(
+        //         createdAt: result[i].createdAt.toUtc().copyWith(microsecond: 0),
+        //         updatedAt: result[i].updatedAt.toUtc().copyWith(microsecond: 0),
+        //       ),
+        //       equals(expectedCourses[i].copyWith(
+        //         createdAt: expectedCourses[i]
+        //             .createdAt
+        //             .toUtc()
+        //             .copyWith(microsecond: 0),
+        //         updatedAt: expectedCourses[i]
+        //             .updatedAt
+        //             .toUtc()
+        //             .copyWith(microsecond: 0),
+        //       )));
+        // }
       },
     );
   });

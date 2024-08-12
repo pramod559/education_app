@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 
 class IField extends StatelessWidget {
@@ -38,7 +40,7 @@ class IField extends StatelessWidget {
               if (value == null || value.isEmpty) {
                 return 'This field is required';
               }
-              return null;
+              return validator?.call(value);
             },
       obscureText: obscureText,
       readOnly: readOnly,
@@ -46,6 +48,7 @@ class IField extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       keyboardType: keyboardType,
+      // obscureText: obscureText,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(90),
