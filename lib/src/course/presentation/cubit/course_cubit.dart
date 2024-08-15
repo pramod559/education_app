@@ -19,7 +19,7 @@ class CourseCubit extends Cubit<CourseState> {
 
   Future<void> addCourse(Course course) async {
     emit(AddingCourse());
-    final result = await _addCourse(course);
+    final result = await _addCourse(course as String);
     result.fold(
       (failure) {
         emit(CourseError(failure.errorMessage));

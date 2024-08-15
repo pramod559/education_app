@@ -22,7 +22,7 @@ import 'package:education_app/src/on_boarding/presentation/on_boarding/on_boardi
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
-import 'package:provider/provider.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'injection_container.main.dart';

@@ -6,7 +6,7 @@ import 'package:education_app/src/course/domain/entities/course.dart';
 import 'package:education_app/core/errors/failures.dart';
 
 
-class AddCourse extends UsecasesWithParams<void, String> {
+class AddCourse extends UsecaseWithParams<void, String> {
   final AuthRepo _repo;
 
   AddCourse(this._repo);

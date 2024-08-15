@@ -52,7 +52,7 @@ class TitledInputField extends StatelessWidget {
         SizedBox(height: 10),
         IField(
           controller: controller,
-          hintText: hintText ?? 'Enter${title}',
+          hintText: hintText ?? 'Enter$title',
           hintStyle: hintStyle,
           overrideValidator: true,
           validator: (value) {

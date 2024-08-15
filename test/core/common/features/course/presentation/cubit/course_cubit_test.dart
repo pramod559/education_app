@@ -53,7 +53,7 @@ void main() {
       ],
       verify: (_) {
         verify(
-          () => addCourse(tCourse),
+          () => addCourse(tCourse as String),
         ).called(1);
         verifyNoMoreInteractions(addCourse);
       },
@@ -78,7 +78,7 @@ void main() {
         CourseError('500 Error: Something went wrong'),
       ],
       verify: (_) {
-        verify(() => addCourse(tCourse)).called(1);
+        verify(() => addCourse(tCourse as String)).called(1);
         verifyNoMoreInteractions(addCourse);
       },
     );
@@ -88,7 +88,8 @@ void main() {
     blocTest<CourseCubit, CourseState>(
       'emits [CourseLoading, CoursesLoaded] when getCourses is called',
       build: () {
-        when(() => getCourses()).thenAnswer((_) async => Right([tCourse]));
+        when(() => getCourses(tCourse as String))
+            .thenAnswer((_) async => Right([tCourse]));
         return courseCubit;
       },
       act: (cubit) => cubit.getCourses(),
@@ -97,7 +98,8 @@ void main() {
         CoursesLoaded([tCourse]),
       ], // <CourseState>[]
       verify: (_) {
-        verify(() => getCourses()).called(1);
+//        verify(() => getCourses()).called(1);
+        verify(() => getCourses(tCourse as String)).called(1);
         verifyNoMoreInteractions(getCourses);
       },
     );
@@ -105,7 +107,7 @@ void main() {
     blocTest<CourseCubit, CourseState>(
       'emits [CourseLoading, CourseError] when getCourses is called',
       build: () {
-        when(() => getCourses()).thenAnswer((_) async => Left(
+        when(() => getCourses(tCourse as String)).thenAnswer((_) async => Left(
               ServerFailure(
                 message: 'Something went wrong',
                 statusCode: '500',
@@ -119,7 +121,8 @@ void main() {
         CourseError('500 Error: Something went wrong'),
       ],
       verify: (_) {
-        verify(() => getCourses()).called(1);
+//        verify(() => getCourses()).called(1);
+        verify(() => getCourses(tCourse as String)).called(1);
         verifyNoMoreInteractions(getCourses);
       },
     );
