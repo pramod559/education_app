@@ -52,6 +52,6 @@ void main() {
     test('should return a [VideoModel] with the new data ', () async {
       final result = tVideoModel.copyWith(tutor: 'New Tutor');
       expect(result.tutor, 'New Tutor');
-    });
+    },);
   });
 }
