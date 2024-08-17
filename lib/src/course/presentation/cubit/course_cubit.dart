@@ -36,7 +36,8 @@ class CourseCubit extends Cubit<CourseState> {
         emit(CourseError(failure.errorMessage));
       },
       (courses) {
-        emit(CoursesLoaded(courses));
+        emit(
+          CoursesLoaded(courses));
       },
     );
   }
